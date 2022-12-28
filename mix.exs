@@ -23,7 +23,9 @@ defmodule RethinkDB.Changefeed.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     env_apps = case Mix.env do
-      :test -> [:flaky_connection]
+      :test -> [
+          #:flaky_connection
+      ]
       _ -> []
     end
     [applications: [:logger | env_apps]]
@@ -40,11 +42,11 @@ defmodule RethinkDB.Changefeed.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:rethinkdb, "~> 0.4.0"},
-      {:connection, "~> 1.0.1"},
+      {:rethinkdb, github: "point/rethinkdb-elixir", branch: "master", override: true},
+      {:connection, "~> 1.1"},
       {:earmark, "~> 0.1", only: :dev},
       {:ex_doc, "~> 0.7", only: :dev},
-      {:flaky_connection, github: "hamiltop/flaky_connection", only: :test}
+      # {:flaky_connection, github: "hamiltop/flaky_connection", only: :test}
     ]
   end
 end
