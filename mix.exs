@@ -4,10 +4,10 @@ defmodule RethinkDB.Changefeed.Mixfile do
   def project do
     [app: :rethinkdb_changefeed,
      version: "0.0.1",
-     elixir: "~> 1.2",
+     elixir: "~> 1.15",
      description: "RethinkDB Supervised Changefeeds",
-     package: package,
-     deps: deps]
+     package: package(),
+     deps: deps()]
   end
 
   def package do
@@ -44,8 +44,6 @@ defmodule RethinkDB.Changefeed.Mixfile do
     [
       {:rethinkdb, github: "point/rethinkdb-elixir", branch: "master", override: true},
       {:connection, "~> 1.1"},
-      {:earmark, "~> 0.1", only: :dev},
-      {:ex_doc, "~> 0.7", only: :dev},
       # {:flaky_connection, github: "hamiltop/flaky_connection", only: :test}
     ]
   end
